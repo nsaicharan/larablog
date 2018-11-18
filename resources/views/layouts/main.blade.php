@@ -12,13 +12,13 @@
             {{ config('app.name') }}
         @endif
     </title>
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
 </head>
 <body>
     @include('inc.nav')
 
-    <main class="mt-4 text-center">
+    <main class="container mt-5">
         @yield('content')
     </main>
 </body>
