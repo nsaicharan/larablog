@@ -6,7 +6,7 @@
     @if(count($posts) > 0)
         <div class="row">
             @foreach($posts as $post)
-                <div class="col-lg-8 mx-auto mb-4">
+                <div class="col-lg-8 offset-lg-2 mb-4">
                     <h2>
                         <a href="/posts/{{$post->id}}">{{$post->title}}</a>
                     </h2>
@@ -15,9 +15,13 @@
                         <small>Created on {{$post->created_at}}</small>
                     </p>
 
-                    <p>{{$post->body}}</p>
+                    {!! $post->body !!}
                 </div>
             @endforeach
+
+            <div class="col-lg-8 offset-lg-2">
+                {{$posts->links()}}
+            </div>
         </div>
         {{-- /.row --}}
     @else

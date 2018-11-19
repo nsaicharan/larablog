@@ -14,7 +14,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('id', 'dsc')->get();
+        $posts = Post::orderBy('id', 'dsc')->paginate(10);
 
         return view('posts.index', compact('posts'));
     }
@@ -26,7 +26,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -35,9 +35,16 @@ class PostsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store()
     {
-        //
+        $attributes = request()->validate([
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+
+        Post::create($attributes);
+
+        return redirect('/posts');
     }
 
     /**

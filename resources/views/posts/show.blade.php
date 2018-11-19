@@ -8,6 +8,6 @@
             <small>Created on {{$post->created_at}}</small>
         </p>
 
-        <p>{{$post->body}}</p>
+        {!! $post->body !!}
     </div>
 @endsection
