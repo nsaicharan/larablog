@@ -9,5 +9,12 @@
         </p>
 
         {!! $post->body !!}
+
+        <form action="/posts/{{$post->id}}" method="POST" class="mt-5">
+            @method('DELETE')
+            @csrf
+
+            <button class="btn btn-danger">Delete</button>
+        </form>
     </div>
 @endsection
