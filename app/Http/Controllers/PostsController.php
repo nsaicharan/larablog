@@ -29,12 +29,6 @@ class PostsController extends Controller
         return view('posts.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store()
     {
         $attributes = request()->validate([
@@ -47,46 +41,28 @@ class PostsController extends Controller
         return redirect('/posts');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show(Post $post)
     {
         return view('posts.show', compact('post'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        //
+        return view('posts.edit', compact('post'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(Post $post)
     {
-        //
+        $attributes = request()->validate([
+            'title' => 'required',
+            'body' => 'required'
+        ]);
+
+        $post->update($attributes);
+
+        return redirect('/posts');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Post $post)
     {
         $post->delete();

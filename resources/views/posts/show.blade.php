@@ -10,11 +10,17 @@
 
         {!! $post->body !!}
 
-        <form action="/posts/{{$post->id}}" method="POST" class="mt-5">
-            @method('DELETE')
-            @csrf
+        <hr class="my-4">
 
-            <button class="btn btn-danger">Delete</button>
-        </form>
+        <div class="d-flex">
+            <form action="/posts/{{$post->id}}" method="POST">
+                @method('DELETE')
+                @csrf
+
+                <button class="btn btn-outline-danger">Delete</button>
+            </form>
+
+            <a href="/posts/{{$post->id}}/edit" class="btn btn-primary ml-4 px-4">Edit</a>
+        </div>
     </div>
 @endsection
