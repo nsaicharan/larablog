@@ -29,12 +29,16 @@ class PostsController extends Controller
         return view('posts.create');
     }
 
-    public function store()
+    public function store(Request $request)
     {
-        $attributes = request()->validate([
+        // Info received form Create Post form
+        $attributes = $request->validate([
             'title' => 'required',
             'body' => 'required'
         ]);
+
+        // Add user_id
+        $attributes['user_id'] = auth()->id();
 
         Post::create($attributes);
 

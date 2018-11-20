@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
 @section('content')
     <h1 class="font-weight-light text-center mb-5">Create Post</h1>

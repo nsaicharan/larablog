@@ -1,6 +1,6 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
-@section('title', 'Home')
+@section('title')
 
 @section('content')
     <h1>Home Page</h1>
