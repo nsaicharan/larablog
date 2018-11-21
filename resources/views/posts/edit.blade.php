@@ -23,10 +23,12 @@
             <button class="btn btn-primary btn-block btn-lg text-uppercase">Edit</button>
         </form>
     </div>
+@endsection
 
-    {{-- Laravel CKEditor --}}
+<!-- WYSIWYG Editor -->
+@section('scripts')
     <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
     <script>
-        CKEDITOR.replace( 'body' );
+       window.onload = () => CKEDITOR.replace( 'body' );
     </script>
 @endsection

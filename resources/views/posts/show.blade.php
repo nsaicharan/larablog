@@ -5,7 +5,7 @@
         <h1>{{$post->title}}</h1>
 
         <p class="mb-4 text-muted">
-            <small>Created on {{$post->created_at}}</small>
+            <small>Written by {{$post->user->name}} on {{$post->created_at->format('M d, Y')}}</small>
         </p>
 
         {!! $post->body !!}

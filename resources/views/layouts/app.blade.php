@@ -30,8 +30,10 @@
 <body>
     @include('inc.nav')
 
-    <main class="container mt-5">
+    <div id="app" class="container mt-5">
         @yield('content')
-    </main>
+    </div>
+
+    @yield('scripts')
 </body>
 </html>

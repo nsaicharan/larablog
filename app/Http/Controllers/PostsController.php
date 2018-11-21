@@ -71,6 +71,10 @@ class PostsController extends Controller
     {
         $post->delete();
 
-        return redirect('/posts');
+        if (request()->has('fromDashboard')) {
+            return redirect('/dashboard');
+        } else {
+            return redirect('/posts');
+        }
     }
 }
